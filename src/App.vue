@@ -5,6 +5,8 @@
   计数器：{{ count }} <button @click="increment">累加</button>
   <p>{{ state.name }}</p>
   <p>{{ state.age }}</p>
+  <p>{{ state.age }}</p>
+  <p>{{ state.age }}</p>
 </template>
 <script>
 // ref 就是一个组合式API
