@@ -7,10 +7,16 @@
   <p>{{ state.age }}</p>
   <div>{{ msg }}</div>
   <button @click="translate">翻译</button>
+  <!-- 使用计算属性 -->
+  <div>成绩:{{ score }}</div>
+  <div>优秀成绩:{{ excescore }}</div>
 </template>
 <script setup>
 // ref 就是一个组合式API
-import { reactive, ref } from "vue";
+import { reactive, ref, computed } from "vue";
+// 使用计算属性
+const score = ref([20, 40, 50, 70, 80, 90, 100]);
+const excescore = computed(() => score.value.filter((item) => item >= 80));
 // 显示隐藏
 const show = ref(true);
 const toggle = () => {
