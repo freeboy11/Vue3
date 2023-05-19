@@ -4,7 +4,13 @@
   <button @click="changSocial">改钱数</button>
 </template>
 <script setup>
-import { ref, watch } from "vue";
+import { onMounted, ref, watch } from "vue";
+console.log("你好");
+// 一般写接口等经常用的生命周期  可以多次调用   方便配合async 使用  现在是假的数据
+onMounted(async () => {
+  console.log("我是在渲染之后出现的");
+  const res = await List();
+});
 const student = ref({
   name: "廖某",
   info: {
