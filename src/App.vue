@@ -2,14 +2,25 @@
   <div>{{ student.name }}身价有{{ student.info.social }}亿</div>
   <button @click="changName">改名字</button>
   <button @click="changSocial">改钱数</button>
+  <myForm ref="Form"></myForm>
 </template>
 <script setup>
+import myForm from "./components/myForm.vue";
 import { onMounted, ref, watch } from "vue";
+const Form = ref(null);
+onMounted(() => {
+  console.log("myForm", myForm);
+  console.log("使用的是子组件里面的msg", Form.value.msg);
+});
+// 引入子组件
 console.log("你好");
 // 一般写接口等经常用的生命周期  可以多次调用   方便配合async 使用  现在是假的数据
-onMounted(async () => {
+// onMounted(async () => {
+//   console.log("我是在渲染之后出现的");
+//   const res = await List();
+// });
+onMounted(() => {
   console.log("我是在渲染之后出现的");
-  const res = await List();
 });
 const student = ref({
   name: "廖某",
