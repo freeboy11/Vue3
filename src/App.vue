@@ -5,8 +5,8 @@
   计数器：{{ count }} <button @click="increment">累加</button>
   <p>{{ state.name }}</p>
   <p>{{ state.age }}</p>
-  <p>{{ state.age }}</p>
-  <p>{{ state.age }}</p>
+  <div>{{ msg }}</div>
+  <button @click="translate">翻译</button>
 </template>
 <script>
 // ref 就是一个组合式API
@@ -26,8 +26,13 @@ export default {
     // reactive函数
     // 2 创建响应式数据对象
     const state = reactive({ name: "廖总", age: 18 });
-    return { show, toggle, count, increment, state };
-    //
+    // 注意  使用ref的时候要.value
+    let msg = ref("我爱你");
+    const translate = () => {
+      msg.value = "LOVE";
+    };
+
+    return { show, toggle, count, increment, state, translate, msg };
   },
 };
 </script>
