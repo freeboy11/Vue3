@@ -2,15 +2,19 @@
   <div>{{ student.name }}身价有{{ student.info.social }}亿</div>
   <button @click="changName">改名字</button>
   <button @click="changSocial">改钱数</button>
-  <myForm ref="Form" :car="car"></myForm>
+  <myForm ref="Form" :car="car" @myColor="myColor"></myForm>
   <h3>{{ car }}</h3>
+  <h2>你干嘛</h2>
 </template>
 <script setup>
 import myForm from "./components/myForm.vue";
 import { onMounted, ref, watch } from "vue";
 const car = ref("五菱宏光");
-
 const Form = ref(null);
+// 父组件接受到子组件
+const myColor = (data) => {
+  console.log("子传父", data);
+};
 onMounted(() => {
   console.log("myForm", myForm);
   console.log("使用的是子组件里面的msg", Form.value.msg);
