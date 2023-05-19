@@ -2,11 +2,14 @@
   <div>{{ student.name }}身价有{{ student.info.social }}亿</div>
   <button @click="changName">改名字</button>
   <button @click="changSocial">改钱数</button>
-  <myForm ref="Form"></myForm>
+  <myForm ref="Form" :car="car"></myForm>
+  <h3>{{ car }}</h3>
 </template>
 <script setup>
 import myForm from "./components/myForm.vue";
 import { onMounted, ref, watch } from "vue";
+const car = ref("五菱宏光");
+
 const Form = ref(null);
 onMounted(() => {
   console.log("myForm", myForm);
